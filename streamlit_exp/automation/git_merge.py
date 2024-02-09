@@ -5,8 +5,8 @@ from colorama import Fore, init
 
 init(autoreset=True)
 
-from inforcast.params import LOCAL_GIT_REPO
-from inforcast.utils import time_it
+from streamlit_exp.params import LOCAL_GIT_REPO
+from streamlit_exp.utils import time_it
 
 repo_path = LOCAL_GIT_REPO
 

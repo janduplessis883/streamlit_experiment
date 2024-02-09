@@ -1,13 +1,12 @@
 # Core Packages
 numpy
 pandas
-scipy
-scikit-learn
+streamlit
 
 # Visualization
 matplotlib
 seaborn
-yellowbrick
+
 
 # Jupyter
 notebook
@@ -33,3 +32,4 @@ pytest
 
 # Package specific
 
+black

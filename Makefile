@@ -15,18 +15,16 @@ clean:
 all: install clean
 
 app:
-	@streamlit run inforcast/app.py
+	@streamlit run streamlit_exp/streamlit_app.py
 
 git_merge:
-	$(MAKE) clean
 	$(MAKE) lint
-	@python package/automation/git_merge.py
+	@python streamlit_exp/automation/git_merge.py
 	@echo "👍 Git Merge (master) successfull!"
 
 git_push:
-	$(MAKE) clean
 	$(MAKE) lint
-	@python package/automation/git_push.py
+	@python streamlit_exp/automation/git_push.py
 	@echo "👍 Git Push (branch) successfull!"
 
 test:
@@ -34,4 +32,4 @@ test:
 
 # Specify package name
 lint:
-	@black package/
+	@black streamlit_exp/
