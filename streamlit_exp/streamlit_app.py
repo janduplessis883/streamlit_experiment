@@ -76,10 +76,10 @@ with col3:
     if data is not None:
         st.header("Friends & Family Test Analysis Data")
         data = pd.read_csv("data/data.csv")
-
+        bins = st.slider("Select number of bins", min_value=5, max_value=50, value=10)
         fig, ax = plt.subplots(figsize=(16, 3))
         sns.histplot(
-            data["subjectivity"], ax=ax, kde=True, color="#d0b05b"
+            data["subjectivity"], ax=ax, kde=True, color="#d0b05b", bins=bins
         )  # 'kde' for a density plot overlay
         ax.set_title("Subjectivity Histogram")
         ax.set_xlabel("Subjectivity")
@@ -93,7 +93,7 @@ with col3:
 
         fig, ax = plt.subplots(figsize=(16, 3))
         sns.histplot(
-            data["polarity"], ax=ax, kde=True, color="#3d6e93"
+            data["polarity"], ax=ax, kde=True, color="#3d6e93", bins=bins
         )  # 'kde' for a density plot overlay
         ax.set_title("Polarity Histogram")
         ax.set_xlabel("Polarity")
