@@ -18,5 +18,3 @@ textColor = "#262730"
 # Font for your app, choose between "sans serif", "serif", and "monospace"
 font = "sans serif"
 
-[global]
-developmentMode = true

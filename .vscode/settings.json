@@ -1,3 +1,4 @@
 {
-    "taipyStudio.config.mainPythonFile": "setup.py"
+    "taipyStudio.config.mainPythonFile": "setup.py",
+    "taipyStudio.gUI.elementsFilePaths": []
 }
