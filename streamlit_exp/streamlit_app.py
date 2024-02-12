@@ -35,7 +35,9 @@ with col1:
     # Render the HTML in the Streamlit app
     st.markdown(html4, unsafe_allow_html=True)
     # Toggle checkbox
-    toggle = st.checkbox("About")
+    toggle = st.checkbox(
+        "About", help="Selec this checkbox if you want to load an explination"
+    )
 
     # Check if the toggle is on or off
     if toggle:
