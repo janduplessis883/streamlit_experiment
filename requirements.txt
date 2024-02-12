@@ -33,3 +33,4 @@ pytest
 # Package specific
 
 black
+streamlit-shadcn-ui  

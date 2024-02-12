@@ -5,6 +5,7 @@ import time
 import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns
+import streamlit_shadcn_ui as ui
 
 
 st.set_page_config(page_title="Streamlit-exp", layout="wide")
@@ -74,6 +75,27 @@ with col2:
 # Check if df_list is available and valid for plotting
 with col3:
     if data is not None:
+        ui.tabs(
+            options=[
+                "Dashboard",
+                "Feedback Classification",
+                "Improvement Suggestions",
+                "Sentiment Analysis",
+            ],
+            default_value="Dashboard",
+            key="kanaries",
+        )
+
+        choice = ui.select(options=["Apple", "Banana", "Orange"])
+
+        st.markdown(f"Currrent value: {choice}")
+
+        switch_value = ui.switch(
+            default_checked=False, label="Explain this page", key="switch1"
+        )
+        if switch_value == True:
+            st.markdown("This is the explination of this page.")
+
         st.header("Friends & Family Test Analysis Data")
         data = pd.read_csv("data/data.csv")
         bins = st.slider("Select number of bins", min_value=5, max_value=50, value=10)
