@@ -96,6 +96,22 @@ with col3:
         if switch_value == True:
             st.markdown("This is the explination of this page.")
 
+        ui.avatar(
+            src="https://github.com/janduplessis883/streamlit_experiment/blob/master/images/jan_blue.png?raw=true"
+        )
+
+        ui.badges(
+            badge_list=[
+                ("default", "default"),
+                ("secondary", "secondary"),
+                ("outline", "outline"),
+                ("Jan du Plessis", "destructive"),
+                ("World", "destructive"),
+            ],
+            class_name="flex gap-2",
+            key="badges1",
+        )
+
         st.header("Friends & Family Test Analysis Data")
         data = pd.read_csv("data/data.csv")
         bins = st.slider("Select number of bins", min_value=5, max_value=50, value=10)
