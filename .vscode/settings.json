@@ -1,4 +1,5 @@
 {
     "taipyStudio.config.mainPythonFile": "setup.py",
-    "taipyStudio.gUI.elementsFilePaths": []
+    "taipyStudio.gUI.elementsFilePaths": [],
+    "python.REPL.enableREPLSmartSend": false
 }

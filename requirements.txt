@@ -34,3 +34,5 @@ pytest
 
 black
 streamlit-shadcn-ui  
+Pillow
+streamlit-dynamic-filters
