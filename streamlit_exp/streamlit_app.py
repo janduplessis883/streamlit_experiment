@@ -26,7 +26,10 @@ html = """
 </style>
 <div class="gradient-text">GP Surgeries</div>
 """
-st.sidebar.markdown("NHS England")
+st.sidebar.image(
+    "https://github.com/janduplessis883/streamlit_experiment/blob/master/images/nhs.png?raw=true",
+    width=80,
+)
 st.sidebar.markdown(html, unsafe_allow_html=True)
 
 
@@ -46,6 +49,7 @@ def load_data():
     ]
     df = df[columns_to_display]
     contact_df = df.drop_duplicates()
+    contact_df.reset_index(inplace=True)
     return contact_df
 
 
@@ -60,11 +64,41 @@ selected_tab = ui.tabs(
 )
 
 if selected_tab == "Contact Details: NHS England GPs":
+    st.subheader("Contact Details")
     dynamic_filters = DynamicFilters(
         df=data, filters=["Region", "ICB", "PCN", "Practice_Name"]
     )
     dynamic_filters.display_filters(location="sidebar")
     dynamic_filters.display_df()
 
+
 elif selected_tab == "Surgery Reviews Data":
-    st.write("Review Data")
+    st.subheader("Review Data")
+
+    @st.cache_data
+    def load_review_data():
+        df = pd.read_csv("streamlit_exp/data/full_gpreviews.csv")
+        columns_to_display2 = [
+            "ode",
+            "Practice_Name",
+            "star_rating",
+            "title",
+            "comment",
+            "visited_date",
+            "PCN",
+            "Region",
+            "ICB",
+        ]
+        df = df[columns_to_display2]
+        review_df = df.drop_duplicates()
+        review_df.reset_index(inplace=True)
+        return review_df
+
+    review_data = load_review_data()
+    review_data.to_csv("review_data.csv", index=False)
+
+    dynamic_filters2 = DynamicFilters(
+        df=review_data, filters=["Region", "ICB", "PCN", "Practice_Name"]
+    )
+    dynamic_filters2.display_filters(location="sidebar")
+    dynamic_filters2.display_df()
