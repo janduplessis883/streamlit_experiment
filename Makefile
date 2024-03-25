@@ -18,7 +18,6 @@ app:
 	@streamlit run streamlit_exp/streamlit_app.py
 
 git_merge:
-	$(MAKE) lint
 	@python streamlit_exp/automation/git_merge.py
 	@echo "👍 Git Merge (master) successfull!"
 
